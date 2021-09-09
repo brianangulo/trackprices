@@ -2,16 +2,16 @@
   <div class="navbar">
     <ul class="nav-ul">
       <li class="nav-li">
-        <a href="">Tracker</a>
+        Tracker
       </li>
       <li class="nav-li">
-        <a href="">Login</a>
+        Login
       </li>
       <li class="nav-li">
-        <a href="">Logout</a>
+        Logout
       </li>
       <li class="nav-li">
-        <a href="">Sign Up</a>
+        Sign Up
       </li>
     </ul>
   </div>
@@ -25,18 +25,14 @@ export default {
 
 <style lang="scss">
 .navbar {
-    background-color: lightblue;
-    margin: 0%;
+  background-color: lightblue;
   .nav-ul {
-    top: 0; 
+    top: 0;
     display: flex;
     justify-content: space-evenly;
+    margin: 0px;
     .nav-li {
       list-style: none;
-      a {
-        color: black;
-        text-decoration: none;
-      }
     }
   }
 }
