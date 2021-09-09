@@ -22,7 +22,7 @@ export default {
       const response = await fetch("http://127.0.0.1:5000/hello");
       this.$data.list = JSON.parse((await response.text()));
     },
-    saveShoppingItem: async (item) => {
+   async saveShoppingItem(item) {
       const response = await fetch("http://127.0.0.1:5000/hello", {
         method: "POST",
         body: JSON.stringify(item)
