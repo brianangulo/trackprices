@@ -2,16 +2,16 @@
   <div class="navbar">
     <ul class="nav-ul">
       <li class="nav-li">
-        Tracker
+       <button @click="goTo('/hello')">Tracker</button>
       </li>
       <li class="nav-li">
-        Login
+        <button @click="goTo('/hello')">Login</button> 
       </li>
       <li class="nav-li">
-        Logout
+       <button @click="goTo('/hello')">Logout</button>
       </li>
       <li class="nav-li">
-        Sign Up
+       <button @click="goTo('/hello')">Sign Up</button>
       </li>
     </ul>
   </div>
@@ -20,6 +20,9 @@
 <script>
 export default {
   name: "NavBar",
+  methods: {
+   
+  }
 };
 </script>
 
@@ -31,6 +34,7 @@ export default {
     display: flex;
     justify-content: space-evenly;
     margin: 0px;
+    padding: 3%;
     .nav-li {
       list-style: none;
     }
