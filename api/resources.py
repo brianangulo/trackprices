@@ -1,6 +1,5 @@
 from flask_restful import Resource, reqparse, request
 import json
-from app import db
 
 parser = reqparse.RequestParser()
 parser.add_argument("name")
