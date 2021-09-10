@@ -1,4 +1,9 @@
-from flask_restful import Resource
+from flask_restful import Resource, reqparse, request
+import json
+from app import db
+
+parser = reqparse.RequestParser()
+parser.add_argument("name")
 
 class ShoppingList(Resource):
     def get(self):
@@ -25,9 +30,9 @@ class ShoppingList(Resource):
             }
         ]
     def post(self):
-        return {"hello": "hello"}
-
-
+        data =json.loads(request.get_data())
+        print(data)
+        return data
 
 
        
