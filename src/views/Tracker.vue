@@ -1,10 +1,12 @@
 <template>
   <div class="tracker">
     <h1>Track Your Shopping List</h1>
-    <input id="add" ref="add" type="text">
+    <input id="add" ref="add" type="text" />
     <button @click="addItem()">Add Item</button>
     <ul class="shop-list">
-      <li v-for="item, index in list" :key="index" class="item"><input :id="item.id" type="checkbox" /> {{ item.name }} </li>
+      <li v-for="(item, index) in list" :key="index" class="item">
+        <input :id="index" type="checkbox" /> {{ item.name }}
+      </li>
     </ul>
   </div>
 </template>
@@ -14,38 +16,38 @@ export default {
   name: "Tracker",
   data() {
     return {
-      list: []
-    }
+      list: [],
+    };
   },
   methods: {
-   async fetchShoppingList() {
+    async fetchShoppingList() {
       const response = await fetch("http://127.0.0.1:5000/hello");
-      this.$data.list = JSON.parse((await response.text()));
+      this.$data.list = JSON.parse(await response.text());
     },
-   async saveShoppingItem(item) {
+    async saveShoppingItem(item) {
       const response = await fetch("http://127.0.0.1:5000/hello", {
         method: "POST",
-        body: JSON.stringify(item)
+        body: JSON.stringify(item),
       });
-      console.log(response);
+      console.log(await response.text());
     },
     addItem() {
       const inputEl = this.$refs.add;
       if (inputEl.value) {
         const tempList = [...this.$data.list];
-        tempList.push({
+        const listItem = {
           name: inputEl.value,
-          id: Math.floor(Math.random() * 20)
-        });
+        };
+        tempList.push(listItem);
         this.$data.list = [...tempList];
+        this.saveShoppingItem(listItem);
         inputEl.value = "";
-        this.saveShoppingItem()
       }
-    }
+    },
   },
   mounted() {
     this.fetchShoppingList();
-  }
+  },
 };
 </script>
 
