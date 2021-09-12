@@ -23,6 +23,7 @@ export default {
     async fetchShoppingList() {
       const response = await fetch("http://127.0.0.1:5000/hello");
       this.$data.list = JSON.parse(await response.text());
+      console.log(this.$data.list);
     },
     async saveShoppingItem(item) {
       const response = await fetch("http://127.0.0.1:5000/hello", {
