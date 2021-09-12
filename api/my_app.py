@@ -1,4 +1,3 @@
-from os import name
 from flask import Flask
 from flask_restful import Resource, Api, reqparse, abort, request
 from flask_sqlalchemy import SQLAlchemy
